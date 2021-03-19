@@ -1,0 +1,11 @@
+selain ->selain: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+note over selain 
+lähettämisen hoitaa selaimen lataama 
+javascript koodi
+Normaali lähetys keskeytyy ja koodi luo muistiin panon
+lisää sen listalle ja piirtää listan uudestaan ja sitten 
+lähettää sen palvelimelle
+
+end note
+selain -> palvelin :HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+palvelin --> selain : JSON muodossa oleva uusi muistiinpano
