@@ -1,0 +1,28 @@
+title Untitled
+
+Selain->Palvelin: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+Selain --> Palvelin:  Uuden lisäyksen data 
+
+Palvelin--> Selain: HTTP-statuskoodi 302 kohteeseen exampleapp/notes
+note over Selain:
+Palvelin ohjaa selaimen tekemään 
+uuden pyynnön kohteeseen 
+exampleapp/notes
+end note
+Selain->Palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+Palvelin--> Selain: HTML koodi
+Selain-> Palvelin:HTTP GEThttps://studies.cs.helsinki.fi/exampleapp/main.css
+Palvelin-->Selain:  css koodi
+Selain-> Palvelin:HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+Palvelin-->Selain:  javascrpit koodi
+note over Selain:
+selain alkaa suorittaa js-koodia
+joka pyytää JSON-datan palvelimelta
+end note
+Selain-> Palvelin:HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Palvelin-->Selain:  json data
+note over Selain:
+selain piirtää data näytölle
+end note
+Selain-> Palvelin:HTTP GET https://studies.cs.helsinki.fi/exampleapp/favicon.ico
+Palvelin-->Selain:  "course stats" icon
