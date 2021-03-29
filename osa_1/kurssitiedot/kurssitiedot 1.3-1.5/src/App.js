@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Header = (props) => {
-  console.log(props)
   return (
     <div>
       <h1>{props.kurssi}</h1>
@@ -10,30 +9,26 @@ const Header = (props) => {
 }
 
 const Content = (props) => {
-  
   return (
     <div>
       
-      <Part nimi = {props.course.parts[0].name} teht = {props.course.parts[0].exercises}/>
-      <Part nimi = {props.course.parts[1].name} teht = {props.course.parts[1].exercises}/>
-      <Part nimi = {props.course.parts[2].name} teht = {props.course.parts[2].exercises}/>
+      <Part nimi = {props.part1} teht = {props.teht1}/>
+      <Part nimi = {props.part2} teht = {props.teht2}/>
+      <Part nimi = {props.part3} teht = {props.teht3}/>
       
     </div>
   )
 }
 const Total = (props) => {
-  console.log(props)
   return (
     <div>
       <p>
-        
-        {props.course.parts[0].exercises+ props.course.parts[1].exercises+ props.course.parts[2].exercises}
+        {props.teht +props.teht2 +props.teht3} 
       </p>
     </div>
   )
 }
 const Part = (props) => {
-  console.log(props)
   return (
     <div>
       {props.nimi} {props.teht}
@@ -41,35 +36,25 @@ const Part = (props) => {
   )
 }
 const App = () => {
-  const course = {
-    name: 'Half Stack application development',
-    parts: [
-      {
-        name: 'Fundamentals of React',
-        exercises: 10
-      },
-      {
-        name: 'Using props to pass data',
-        exercises: 7
-      },
-      {
-        name: 'State of a component',
-        exercises: 14
-      }
-    ]
-  }
-
+  const course = 'Half Stack application development'
+  const part1 = 'Fundamentals of React'
+  const exercises1 = 10
+  const part2 = 'Using props to pass data'
+  const exercises2 = 7
+  const part3 = 'State of a component'
+  const exercises3 = 14
 
   return (
     <div>
-    < Header kurssi = {course.name}/>
+      <Header kurssi = {course }/>
+      
+      <Content part1 = {part1} teht1= {exercises1} />
+      <Content part2 = {part2} teht2= {exercises2} />
+      <Content part3 = {part3} teht3= {exercises3} />
 
-    < Content course ={course}/>
-    
-    < Total course={course} />
-   
+      <Total teht = {exercises1} teht2 = {exercises2} teht3 = {exercises3}/>
     </div>
-
   )
 }
+
 export default App
