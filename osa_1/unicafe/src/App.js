@@ -10,15 +10,25 @@ const Stats = (props) => {
 const Statistics = (props) => {
   // ...
   const  yhteensa= props.good + props.neutral + props.bad
-  const  good =props.good
-  
-  
+  const pos =props.good/yhteensa * 100
+  const aver = (props.good-props.bad)/yhteensa
+
+  if (isNaN(pos)  || isNaN(aver) ){
+    return (
+      <div>
+        <p>no feedback given</p>
+      </div>
+    )
+  }else{
+
   return (
    <div>
-     <p>positive {good/yhteensa * 100} %</p>
-     <p>average {(props.good-props.bad)/yhteensa} % </p>
+     <p>positive {pos} % </p>
+     <p>average {aver} % </p>
+    
    </div>
   )
+  }
 }
 
 const App = () => {
