@@ -1,19 +1,16 @@
 import React, { useState } from 'react'
-const Stats = (props) => {
-  return (
-    <div>All {props.good+ props.neutral+ props.bad}</div>
-  )
-}
+
 
 
 
 const Statistics = (props) => {
   // ...
+  const all = props.good+ props.neutral+ props.bad
   const  yhteensa= props.good + props.neutral + props.bad
   const pos =props.good/yhteensa * 100
   const aver = (props.good-props.bad)/yhteensa
 
-  if (isNaN(pos)  || isNaN(aver) ){
+  if (isNaN(pos)  || isNaN(aver) || isNaN(all) ){
     return (
       <div>
         <p>no feedback given</p>
@@ -23,8 +20,15 @@ const Statistics = (props) => {
 
   return (
    <div>
+     <p>
+      good {props.good} <br></br>
+      neutral {props.neutral} <br></br>
+      bad {props.bad}
+      </p>
+     <p>all {all}  </p>
      <p>positive {pos} % </p>
      <p>average {aver} % </p>
+     
     
    </div>
   )
@@ -51,13 +55,9 @@ const App = () => {
       bad
       </button>
       <h2>statistics</h2>
-      <p>
-      good {good} <br></br>
-      neutral {neutral} <br></br>
-      bad {bad}
-      </p>
       
-      <Stats good ={good} neutral = {neutral} bad = {bad}/>
+      
+      
       
 
       
