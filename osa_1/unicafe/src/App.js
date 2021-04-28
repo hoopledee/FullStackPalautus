@@ -3,15 +3,13 @@ import React, { useState } from 'react'
 
 const StatisticLine = (props) => {
 return (
-  <div>
-    {props.text} {props.value}
-  </div>
+  <tr><th>{props.text} {props.value}</th></tr>
 )
 }
 
 const Statistics = (props) => {
   // ...
-  if (props.good+ props.bad+ props.neutral == 0)  {
+  if (props.good+ props.bad+ props.neutral === 0)  {
     return <div>no stats given</div>
   }
     else{
@@ -20,14 +18,19 @@ const Statistics = (props) => {
   const pos =props.good/yhteensa * 100
   const aver = (props.good-props.bad)/yhteensa
   return(
-    <div>
+    <table border="1" 
+    align="left">
+      <tbody>
+      
       <StatisticLine text="good" value ={props.good} />
+      
       <StatisticLine text="neutral" value ={props.neutral} />
       <StatisticLine text="bad" value ={props.bad} />
       <StatisticLine text="All" value ={all} />
       <StatisticLine text="aver" value ={aver} />
       <StatisticLine text="pos" value ={pos} />
-    </div>
+      </tbody>
+    </table>
   )
     }
 }
