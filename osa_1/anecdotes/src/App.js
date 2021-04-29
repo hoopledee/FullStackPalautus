@@ -9,6 +9,7 @@ const Button = (props) => {
   )
 }
 const App = () => {
+
   const anecdotes = [
     'If it hurts, do it more often',
     'Adding manpower to a late software project makes it later!',
@@ -17,18 +18,40 @@ const App = () => {
     'Premature optimization is the root of all evil.',
     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
   ]
+  
+  
   const plus = () => setSelected(Math.floor(Math.random() * anecdotes.length))
   const [selected, setSelected] = useState(0)
+
+  const [count, setCount] = useState(Array(anecdotes.length).fill(0))
+  const vote = () => {
+    const copy = [ ...count ]
+  	copy[selected] += 1
+  	setCount(copy)
+   
+  }
+  console.log(count)
   
+
+  
+  
+   
   return (
     <div>
        <Button
         handleClick={plus}
-        text='paina'
+        text='push for next line'
       />
       <br></br>
+      <Button
+        handleClick={vote}
+        text='vote'
+      />
       
+      this line has {count[selected]} votes
+      <br></br>
       {anecdotes[selected]}
+      
     </div>
   )
 }
