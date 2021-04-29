@@ -22,7 +22,7 @@ const App = () => {
   
   const plus = () => setSelected(Math.floor(Math.random() * anecdotes.length))
   const [selected, setSelected] = useState(0)
-
+  
   const [count, setCount] = useState(Array(anecdotes.length).fill(0))
   const vote = () => {
     const copy = [ ...count ]
@@ -30,14 +30,16 @@ const App = () => {
   	setCount(copy)
    
   }
+  const lead = count.indexOf(Math.max(...count))
   console.log(count)
   
-
+  console.log(count.indexOf(Math.max(...count)))
   
   
    
   return (
     <div>
+      <h2>anecdote of the day</h2>
        <Button
         handleClick={plus}
         text='push for next line'
@@ -51,7 +53,11 @@ const App = () => {
       this line has {count[selected]} votes
       <br></br>
       {anecdotes[selected]}
-      
+      <br></br>
+      <h2>anecdotes with most votes </h2>
+      {anecdotes[lead]}
+      <br></br>
+     has {count[lead]} votes
     </div>
   )
 }
